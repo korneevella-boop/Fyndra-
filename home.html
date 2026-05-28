@@ -2,15 +2,17 @@
 <html lang="he">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Luxury Vibe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>House Vibe</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700;900&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #f7f1e8;
-      --text: #1f1b16;
-      --muted: #8a7d6b;
-      --card: #fffaf2;
+      --bg: #e9c9bb;
+      --text: #2a1714;
+      --muted: #6f5148;
+      --card: #f6e6dd;
     }
 
     * {
@@ -21,69 +23,85 @@
       margin: 0;
       background: var(--bg);
       color: var(--text);
-      font-family: Arial, sans-serif;
+      font-family: "League Spartan", Arial, sans-serif;
     }
-
-    h1, h2, h3 {
-      font-family: Georgia, serif;
-      font-weight: 400;
-      letter-spacing: -0.04em;
-    }
-
-    /* NAVBAR */
-
-    .nav {
-      position: fixed;
-      top: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(255,255,255,0.55);
-      backdrop-filter: blur(12px);
-      border-radius: 999px;
-      padding: 14px 24px;
-      z-index: 100;
-    }
-
-    .nav a {
-      margin: 0 12px;
-      color: var(--text);
-      text-decoration: none;
-      font-size: 14px;
-    }
-
-    /* HERO */
 
     .hero {
       min-height: 100vh;
+      padding: 80px 40px 50px;
       display: flex;
+      flex-direction: column;
       justify-content: center;
+    }
+
+    .logo {
+      display: flex;
       align-items: center;
+      justify-content: center;
+      gap: 28px;
+      line-height: 0.8;
       text-align: center;
-      padding: 40px;
     }
 
-    .hero h1 {
-      font-size: clamp(60px, 10vw, 140px);
+    .bold {
+      font-size: clamp(70px, 18vw, 210px);
+      font-weight: 900;
+      letter-spacing: -7px;
+      text-transform: uppercase;
+    }
+
+    .of {
+      font-family: "Playfair Display", Georgia, serif;
+      font-style: italic;
+      font-size: clamp(90px, 15vw, 190px);
+      font-weight: 400;
+      transform: translateY(-25px);
+    }
+
+    .sub-text {
+      margin-top: 45px;
+      display: flex;
+      justify-content: space-between;
+      font-family: Georgia, serif;
+      font-size: clamp(22px, 3vw, 42px);
       line-height: 0.9;
-      margin-bottom: 20px;
+      text-transform: uppercase;
     }
 
-    .hero p {
-      max-width: 600px;
-      margin: auto;
+    .left {
+      text-align: left;
+    }
+
+    .right {
+      text-align: right;
+    }
+
+    .about {
+      padding: 90px 8vw;
+      background: #f7efe9;
+    }
+
+    .about h2 {
+      font-family: Georgia, serif;
+      font-size: 50px;
+      font-weight: 400;
+    }
+
+    .about p {
+      max-width: 650px;
+      font-size: 20px;
+      line-height: 1.6;
       color: var(--muted);
-      font-size: 18px;
-      line-height: 1.7;
     }
 
     .btn {
       display: inline-block;
-      margin-top: 30px;
+      margin-top: 25px;
       padding: 14px 28px;
       border: 1px solid var(--text);
       border-radius: 999px;
-      text-decoration: none;
       color: var(--text);
+      text-decoration: none;
       transition: 0.3s ease;
     }
 
@@ -93,25 +111,22 @@
       transform: translateY(-3px);
     }
 
-    /* GALLERY */
+    .projects {
+      padding: 90px 6vw;
+      background: #f7efe9;
+    }
 
-    .gallery {
+    .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 28px;
-      padding: 80px 6vw;
     }
 
     .card {
       background: var(--card);
+      padding: 18px;
       border-radius: 28px;
       overflow: hidden;
-      padding: 18px;
-      transition: 0.4s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-8px);
     }
 
     .card img {
@@ -123,97 +138,89 @@
     }
 
     .card:hover img {
-      transform: scale(1.05);
+      transform: scale(1.06);
     }
 
     .card h3 {
+      font-family: Georgia, serif;
       font-size: 34px;
+      font-weight: 400;
       margin: 18px 0 8px;
     }
 
     .card p {
       color: var(--muted);
-      line-height: 1.6;
+      font-size: 18px;
+      line-height: 1.5;
     }
 
-    /* ANIMATION */
+    @media (max-width: 700px) {
+      .logo {
+        flex-direction: column;
+        gap: 0;
+      }
 
-    .fade-up {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: all 1s ease;
+      .of {
+        transform: none;
+      }
+
+      .sub-text {
+        flex-direction: column;
+        gap: 30px;
+      }
+
+      .right {
+        text-align: left;
+      }
     }
-
-    .fade-up.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
   </style>
 </head>
 
 <body>
 
-  <!-- NAV -->
+  <section class="hero">
+    <h1 class="logo">
+      <span class="bold">HOUSE</span>
+      <span class="of">of</span>
+      <span class="bold">HONEY</span>
+    </h1>
 
-  <nav class="nav">
-    <a href="#">Home</a>
-    <a href="#">Projects</a>
-    <a href="#">About</a>
-    <a href="#">Contact</a>
-  </nav>
-
-  <!-- HERO -->
-
-  <section class="hero fade-up">
-    <div>
-      <h1>Luxury Interior<br>Vibes</h1>
-
-      <p>
-        Warm minimalism, elegant spaces and modern editorial design.
-      </p>
-
-      <a href="#" class="btn">View Projects</a>
+    <div class="sub-text">
+      <div class="left">INTERIORS, OBJECTS<br>& ATMOSPHERES</div>
+      <div class="right">DESIGNED<br>WITH PLEASURE</div>
     </div>
   </section>
 
-  <!-- GALLERY -->
-
-  <section class="gallery">
-
-    <div class="card fade-up">
-      <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1200&auto=format&fit=crop">
-      <h3>Soft Living</h3>
-      <p>Elegant warm atmosphere with natural textures.</p>
-    </div>
-
-    <div class="card fade-up">
-      <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1200&auto=format&fit=crop">
-      <h3>Modern Calm</h3>
-      <p>Minimal design with premium magazine style visuals.</p>
-    </div>
-
-    <div class="card fade-up">
-      <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=1200&auto=format&fit=crop">
-      <h3>Editorial Style</h3>
-      <p>Large photography and soft luxury interaction.</p>
-    </div>
-
+  <section class="about">
+    <h2>ABOUT</h2>
+    <p>
+      We create warm, timeless interiors with a unique atmosphere.
+      Soft colors, large typography, elegant images and a luxury feeling.
+    </p>
+    <a href="#" class="btn">View Projects</a>
   </section>
 
-  <script>
-    const elements = document.querySelectorAll('.fade-up');
+  <section class="projects">
+    <div class="grid">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1200&auto=format&fit=crop">
+        <h3>Soft Living</h3>
+        <p>Elegant warm atmosphere with natural textures.</p>
+      </div>
 
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting){
-          entry.target.classList.add('show');
-        }
-      });
-    });
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1200&auto=format&fit=crop">
+        <h3>Modern Calm</h3>
+        <p>Minimal design with premium magazine style.</p>
+      </div>
 
-    elements.forEach(el => observer.observe(el));
-  </script>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=1200&auto=format&fit=crop">
+        <h3>Editorial Style</h3>
+        <p>Large photography and soft luxury interaction.</p>
+      </div>
+    </div>
+  </section>
 
 </body>
 </html>

@@ -1,0 +1,89 @@
+:root {
+  --bg: #e9c9bb;
+  --text: #2a1714;
+  --muted: #6f5148;
+  --card: #f6e6dd;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, sans-serif;
+}
+
+header {
+  min-height: 100vh;
+  padding: 80px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  text-align: center;
+}
+
+h1 {
+  margin: 0;
+  font-family: Georgia, serif;
+  font-size: clamp(80px, 18vw, 220px);
+  font-weight: 900;
+  letter-spacing: -8px;
+  line-height: 0.8;
+  text-transform: uppercase;
+}
+
+h3 {
+  margin: 0;
+  font-family: Georgia, serif;
+  font-size: clamp(24px, 4vw, 52px);
+  font-weight: 400;
+  letter-spacing: -1px;
+  color: var(--text);
+}
+
+h3::after {
+  content: "";
+  display: block;
+  width: 120px;
+  height: 1px;
+  background: var(--text);
+  margin: 28px auto 0;
+}
+
+header::before {
+  content: "AI RECOMMENDATIONS";
+  position: absolute;
+  top: 35px;
+  left: 40px;
+  font-family: Georgia, serif;
+  font-size: 22px;
+  line-height: 0.9;
+}
+
+header::after {
+  content: "BOOKS • MOVIES • SERIES • COMICS";
+  position: absolute;
+  bottom: 35px;
+  right: 40px;
+  font-family: Georgia, serif;
+  font-size: 22px;
+  line-height: 0.9;
+}
+
+@media (max-width: 700px) {
+  h1 {
+    letter-spacing: -4px;
+  }
+
+  header::before,
+  header::after {
+    position: static;
+    margin-top: 20px;
+    text-align: center;
+  }
+}
