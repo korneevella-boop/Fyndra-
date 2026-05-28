@@ -4,11 +4,10 @@
   --peach: #ffc9ad;
   --pink: #ff9298;
   --coral: #ff747f;
-
-  --bg: #fff8f5;
+  --bg: #ebcabe;
+  --second-bg: #f6efe4;
   --text: #2a1714;
   --accent: #ff747f;
-  --line: #aee7dd;
 }
 
 * {
@@ -17,23 +16,118 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background-size: 18px 18px;
-  background-color: #ebcabe;
+  background-color: var(--bg);
   font-family: Arial, sans-serif;
-  color: #2a1714;
+  color: var(--text);
   overflow-x: hidden;
 }
 
+/* TOP RAINBOW LINE */
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: -50%;
+  width: 200%;
+  height: 6px;
+  background: linear-gradient(
+    90deg,
+    var(--mint),
+    var(--green),
+    var(--peach),
+    var(--pink),
+    var(--coral),
+    var(--mint)
+  );
+  background-size: 50% 100%;
+  animation: rainbowMove 8s linear infinite;
+  z-index: 9999;
+}
+
+@keyframes rainbowMove {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(25%);
+  }
+}
+
+/* MENU */
+
+.menu {
+  position: fixed;
+  top: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+
+  display: flex;
+  gap: 14px;
+  align-items: center;
+
+  font-family: Georgia, serif;
+  font-size: clamp(18px, 3vw, 28px);
+
+  background: rgba(255, 248, 245, 0.75);
+  backdrop-filter: blur(10px);
+
+  padding: 12px 24px;
+  border-radius: 999px;
+}
+
+.menu a {
+  text-decoration: none;
+  font-weight: 700;
+  transition: 0.3s ease;
+}
+
+.menu a:hover {
+  color: black;
+  transform: translateY(-2px);
+  opacity: 0.8;
+}
+
+.menu span {
+  color: var(--coral);
+}
+
+.books {
+  color: var(--mint);
+}
+
+.movies {
+  color: var(--green);
+}
+
+.series {
+  color: var(--peach);
+}
+
+.comics {
+  color: var(--pink);
+}
+
+/* HERO */
+
 header {
   min-height: 100vh;
+  padding: 40px;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
   position: relative;
   text-align: center;
-  padding: 40px;
 }
 
 h1 {
@@ -75,15 +169,61 @@ h3::after {
 }
 
 header::after {
-  content: "AI POWERED RECOMMENDATIONS";
+  content: "AI RECOMMENDATIONS • AI RECOMMENDATIONS • AI RECOMMENDATIONS • AI RECOMMENDATIONS •";
   position: absolute;
-  bottom: 40px;
-  right: 40px;
+  top: 90%;
+  left: 0;
   font-family: Georgia, serif;
-  font-size: 22px;
-  line-height: 0.95;
-  color: var(--text);
+  font-size: clamp(70px, 12vw, 100px);
+  font-weight: 700;
+  letter-spacing: -4px;
+  white-space: nowrap;
+  color: rgba(42, 23, 20, 0.08);
+  pointer-events: none;
+  animation-name: marqueeText;
+  animation-duration: 12s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
 }
+
+/* ABOUT SECTION */
+
+.about-website {
+  min-height: 100vh;
+  background-color: var(--bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 8vw;
+}
+
+.about-box {
+  max-width: 850px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(80px);
+  transition: 1s ease;
+}
+
+.about-box.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.about-box h2 {
+  font-family: Georgia, serif;
+  font-size: clamp(50px, 8vw, 90px);
+  color: var(--accent);
+  margin-bottom: 25px;
+}
+
+.about-box p {
+  font-size: 22px;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+/* ANIMATION */
 
 @keyframes fadeUp {
   from {
@@ -97,108 +237,37 @@ header::after {
   }
 }
 
+/* MOBILE */
+
 @media (max-width: 700px) {
-  h1 {
-    letter-spacing: -4px;
+  .menu {
+    width: 90%;
+    justify-content: center;
+    font-size: 16px;
+    gap: 8px;
   }
 
-  header::before,
-  header::after {
-    position: static;
-    margin-top: 25px;
-    text-align: center;
+  h1 {
+    letter-spacing: -4px;
   }
 
   h3 {
     font-size: 28px;
   }
+
+  header::after {
+    position: static;
+    margin-top: 40px;
+    font-size: 10px;
+  }
 }
 
-.menu {
-  position: fixed;
-  top: 28px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 100;
-
-  display: flex;
-  gap: 14px;
-  align-items: center;
-
-  font-family: Georgia, serif;
-  font-size: clamp(18px, 3vw, 28px);
-  background: rgba(255, 248, 245, 0.75);
-  backdrop-filter: blur(10px);
-  padding: 12px 24px;
-  border-radius: 999px;
-}
-
-.menu a {
-  text-decoration: none;
-  font-weight: 700;
-  transition: 0.3s ease;
-}
-
-.menu a:hover {
-  color: black;
-  transform: translateY(-2px);
-  opacity: 0.8;
-  transition: 0.3s ease;
-}
-
-.menu span {
-  color: #ff747f;
-}
-
-.books {
-  color: #aee7dd;
-}
-
-.movies {
-  color: #c3d8a7;
-}
-
-.series {
-  color: #ffc9ad;
-}
-
-.comics {
-  color: #ff9298;
-}
-
-body::before {
-  content: "";
-
-  position: fixed;
-
-  top: 0;
-  left: -50%;
-
-  width: 200%;
-  height: 6px;
-
-  background: linear-gradient(
-    90deg,
-    #aee7dd,
-    #c3d8a7,
-    #ffc9ad,
-    #ff9298,
-    #ff747f,
-    #aee7dd
-  );
-
-  background-size: 50% 100%;
-
-  animation: rainbowMove 8s linear infinite;
-
-  z-index: 9999;
-}
-@keyframes rainbowMove {
-  from {
-    transform: translateX(0);
+@keyframes marqueeText {
+  0% {
+    transform: translateX(10vw);
   }
 
-  to {
-    transform: translateX(25%);
+  100% {
+    transform: translateX(-20%);
   }
 }
