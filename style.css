@@ -1,13 +1,14 @@
 :root {
   --mint: #aee7dd;
-  --green: #d7e9bd;
+  --green: #c3d8a7;
   --peach: #ffc9ad;
   --pink: #ff9298;
   --coral: #ff747f;
 
-  --bg: #fff7f2;
+  --bg: #fff8f5;
   --text: #2a1714;
-  --muted: #7a5f59;
+  --accent: #ff747f;
+  --line: #aee7dd;
 }
 
 * {
@@ -17,81 +18,52 @@
 }
 
 body {
-  background:
-    radial-gradient(circle, rgba(255,116,127,0.18) 1px, transparent 1px);
   background-size: 18px 18px;
-  background-color: var(--bg);
-  color: var(--text);
+  background-color: #ebcabe;
   font-family: Arial, sans-serif;
+  color: #2a1714;
+  overflow-x: hidden;
 }
 
 header {
   min-height: 100vh;
-  padding: 80px 40px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  text-align: center;
+  align-items: center;
   position: relative;
-  overflow: hidden;
-}
-
-header::before {
-  content: "";
-  position: absolute;
-  width: 360px;
-  height: 360px;
-  background: var(--mint);
-  border-radius: 50%;
-  top: 12%;
-  left: 8%;
-  opacity: 0.65;
-  filter: blur(2px);
-}
-
-header::after {
-  content: "";
-  position: absolute;
-  width: 420px;
-  height: 420px;
-  background: var(--peach);
-  border-radius: 50%;
-  bottom: 8%;
-  right: 8%;
-  opacity: 0.6;
-  filter: blur(2px);
+  text-align: center;
+  padding: 40px;
 }
 
 h1 {
-  position: relative;
-  z-index: 2;
   font-family: Georgia, serif;
-  font-size: clamp(80px, 18vw, 210px);
+  font-size: clamp(80px, 18vw, 220px);
   font-weight: 900;
+  text-transform: uppercase;
   letter-spacing: -8px;
   line-height: 0.85;
-  color: var(--text);
-  text-transform: uppercase;
+  color: var(--accent);
+  animation: fadeUp 1.2s ease;
 }
 
 h3 {
-  position: relative;
-  z-index: 2;
-  margin-top: 24px;
+  margin-top: 20px;
   font-family: Georgia, serif;
-  font-size: clamp(26px, 4vw, 54px);
+  font-size: clamp(24px, 4vw, 48px);
   font-weight: 400;
-  color: var(--muted);
+  letter-spacing: -1px;
+  color: var(--text);
+  animation: fadeUp 1.6s ease;
 }
 
 h3::after {
   content: "";
   display: block;
-  width: 140px;
+  width: 160px;
   height: 6px;
-  margin: 26px auto 0;
   border-radius: 999px;
+  margin: 24px auto 0;
   background: linear-gradient(
     90deg,
     var(--mint),
@@ -100,4 +72,133 @@ h3::after {
     var(--pink),
     var(--coral)
   );
+}
+
+header::after {
+  content: "AI POWERED RECOMMENDATIONS";
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  font-family: Georgia, serif;
+  font-size: 22px;
+  line-height: 0.95;
+  color: var(--text);
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 700px) {
+  h1 {
+    letter-spacing: -4px;
+  }
+
+  header::before,
+  header::after {
+    position: static;
+    margin-top: 25px;
+    text-align: center;
+  }
+
+  h3 {
+    font-size: 28px;
+  }
+}
+
+.menu {
+  position: fixed;
+  top: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+
+  display: flex;
+  gap: 14px;
+  align-items: center;
+
+  font-family: Georgia, serif;
+  font-size: clamp(18px, 3vw, 28px);
+  background: rgba(255, 248, 245, 0.75);
+  backdrop-filter: blur(10px);
+  padding: 12px 24px;
+  border-radius: 999px;
+}
+
+.menu a {
+  text-decoration: none;
+  font-weight: 700;
+  transition: 0.3s ease;
+}
+
+.menu a:hover {
+  color: black;
+  transform: translateY(-2px);
+  opacity: 0.8;
+  transition: 0.3s ease;
+}
+
+.menu span {
+  color: #ff747f;
+}
+
+.books {
+  color: #aee7dd;
+}
+
+.movies {
+  color: #c3d8a7;
+}
+
+.series {
+  color: #ffc9ad;
+}
+
+.comics {
+  color: #ff9298;
+}
+
+body::before {
+  content: "";
+
+  position: fixed;
+
+  top: 0;
+  left: -50%;
+
+  width: 200%;
+  height: 6px;
+
+  background: linear-gradient(
+    90deg,
+    #aee7dd,
+    #c3d8a7,
+    #ffc9ad,
+    #ff9298,
+    #ff747f,
+    #aee7dd
+  );
+
+  background-size: 50% 100%;
+
+  animation: rainbowMove 8s linear infinite;
+
+  z-index: 9999;
+}
+@keyframes rainbowMove {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(25%);
+  }
 }
