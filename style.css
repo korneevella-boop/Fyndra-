@@ -1,8 +1,13 @@
 :root {
-  --bg: #f4e7df;
+  --mint: #aee7dd;
+  --green: #d7e9bd;
+  --peach: #ffc9ad;
+  --pink: #ff9298;
+  --coral: #ff747f;
+
+  --bg: #fff7f2;
   --text: #2a1714;
-  --accent: #6f3a2f;
-  --line: #c7a99c;
+  --muted: #7a5f59;
 }
 
 * {
@@ -12,128 +17,87 @@
 }
 
 body {
-  background: var(--bg);
-  font-family: Arial, sans-serif;
+  background:
+    radial-gradient(circle, rgba(255,116,127,0.18) 1px, transparent 1px);
+  background-size: 18px 18px;
+  background-color: var(--bg);
   color: var(--text);
-  overflow-x: hidden;
+  font-family: Arial, sans-serif;
 }
 
 header {
   min-height: 100vh;
+  padding: 80px 40px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  position: relative;
+  justify-content: center;
   text-align: center;
-  padding: 40px;
+  position: relative;
+  overflow: hidden;
 }
 
-/* MAIN TITLE */
+header::before {
+  content: "";
+  position: absolute;
+  width: 360px;
+  height: 360px;
+  background: var(--mint);
+  border-radius: 50%;
+  top: 12%;
+  left: 8%;
+  opacity: 0.65;
+  filter: blur(2px);
+}
+
+header::after {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  background: var(--peach);
+  border-radius: 50%;
+  bottom: 8%;
+  right: 8%;
+  opacity: 0.6;
+  filter: blur(2px);
+}
 
 h1 {
+  position: relative;
+  z-index: 2;
   font-family: Georgia, serif;
-  font-size: clamp(80px, 18vw, 220px);
+  font-size: clamp(80px, 18vw, 210px);
   font-weight: 900;
-  text-transform: uppercase;
   letter-spacing: -8px;
   line-height: 0.85;
-  color: var(--accent);
-
-  animation: fadeUp 1.2s ease;
+  color: var(--text);
+  text-transform: uppercase;
 }
-
-/* SUBTITLE */
 
 h3 {
-  margin-top: 20px;
-
+  position: relative;
+  z-index: 2;
+  margin-top: 24px;
   font-family: Georgia, serif;
-  font-size: clamp(24px, 4vw, 48px);
+  font-size: clamp(26px, 4vw, 54px);
   font-weight: 400;
-  letter-spacing: -1px;
-
-  color: var(--text);
-
-  animation: fadeUp 1.6s ease;
+  color: var(--muted);
 }
-
-/* DECORATIVE LINE */
 
 h3::after {
   content: "";
   display: block;
-
-  width: 120px;
-  height: 1px;
-
-  background: var(--text);
-
-  margin: 24px auto 0;
-}
-
-/* TOP TEXT */
-
-header::before {
-  content: "AI POWERED RECOMMENDATIONS";
-
-  position: absolute;
-  top: 40px;
-  left: 40px;
-
-  font-family: Georgia, serif;
-  font-size: 22px;
-  line-height: 0.95;
-
-  color: var(--accent);
-}
-
-/* BOTTOM TEXT */
-
-header::after {
-  content: "BOOKS • MOVIES • SERIES • COMICS";
-
-  position: absolute;
-  bottom: 40px;
-  right: 40px;
-
-  font-family: Georgia, serif;
-  font-size: 22px;
-  line-height: 0.95;
-
-  color: var(--accent);
-}
-
-/* ANIMATION */
-
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(35px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* RESPONSIVE */
-
-@media (max-width: 700px) {
-
-  h1 {
-    letter-spacing: -4px;
-  }
-
-  header::before,
-  header::after {
-    position: static;
-    margin-top: 25px;
-    text-align: center;
-  }
-
-  h3 {
-    font-size: 28px;
-  }
+  width: 140px;
+  height: 6px;
+  margin: 26px auto 0;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    var(--mint),
+    var(--green),
+    var(--peach),
+    var(--pink),
+    var(--coral)
+  );
 }
