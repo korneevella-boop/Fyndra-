@@ -1,81 +1,127 @@
 :root {
-  --bg: #e9c9bb;
+  --bg: #f4e7df;
   --text: #2a1714;
-  --muted: #6f5148;
-  --card: #f6e6dd;
+  --accent: #6f3a2f;
+  --line: #c7a99c;
 }
 
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
 body {
-  margin: 0;
   background: var(--bg);
-  color: var(--text);
   font-family: Arial, sans-serif;
+  color: var(--text);
+  overflow-x: hidden;
 }
 
 header {
   min-height: 100vh;
-  padding: 80px 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 25px;
+  position: relative;
   text-align: center;
+  padding: 40px;
 }
 
+/* MAIN TITLE */
+
 h1 {
-  margin: 0;
   font-family: Georgia, serif;
   font-size: clamp(80px, 18vw, 220px);
   font-weight: 900;
-  letter-spacing: -8px;
-  line-height: 0.8;
   text-transform: uppercase;
+  letter-spacing: -8px;
+  line-height: 0.85;
+  color: var(--accent);
+
+  animation: fadeUp 1.2s ease;
 }
 
+/* SUBTITLE */
+
 h3 {
-  margin: 0;
+  margin-top: 20px;
+
   font-family: Georgia, serif;
-  font-size: clamp(24px, 4vw, 52px);
+  font-size: clamp(24px, 4vw, 48px);
   font-weight: 400;
   letter-spacing: -1px;
+
   color: var(--text);
+
+  animation: fadeUp 1.6s ease;
 }
+
+/* DECORATIVE LINE */
 
 h3::after {
   content: "";
   display: block;
+
   width: 120px;
   height: 1px;
+
   background: var(--text);
-  margin: 28px auto 0;
+
+  margin: 24px auto 0;
 }
 
+/* TOP TEXT */
+
 header::before {
-  content: "AI RECOMMENDATIONS";
+  content: "AI POWERED RECOMMENDATIONS";
+
   position: absolute;
-  top: 35px;
+  top: 40px;
   left: 40px;
+
   font-family: Georgia, serif;
   font-size: 22px;
-  line-height: 0.9;
+  line-height: 0.95;
+
+  color: var(--accent);
 }
+
+/* BOTTOM TEXT */
 
 header::after {
   content: "BOOKS • MOVIES • SERIES • COMICS";
+
   position: absolute;
-  bottom: 35px;
+  bottom: 40px;
   right: 40px;
+
   font-family: Georgia, serif;
   font-size: 22px;
-  line-height: 0.9;
+  line-height: 0.95;
+
+  color: var(--accent);
 }
 
+/* ANIMATION */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* RESPONSIVE */
+
 @media (max-width: 700px) {
+
   h1 {
     letter-spacing: -4px;
   }
@@ -83,7 +129,11 @@ header::after {
   header::before,
   header::after {
     position: static;
-    margin-top: 20px;
+    margin-top: 25px;
     text-align: center;
+  }
+
+  h3 {
+    font-size: 28px;
   }
 }
