@@ -198,12 +198,19 @@ header::after {
 }
 
 .about-box {
-  max-width: 850px;
+  max-width: 950px;
+  width: 100%;
+  padding: 70px;
   text-align: center;
+  border: 2px solid #ff9298;
+  border-radius: 35px;
+  background: rgba(255,255,255,0.05);
+  position: relative;
   opacity: 0;
   transform: translateY(80px);
   transition: 1s ease;
 }
+
 
 .about-box.show {
   opacity: 1;
@@ -268,6 +275,6 @@ header::after {
   }
 
   100% {
-    transform: translateX(-20%);
+    transform: translateX(-8%);
   }
 }
