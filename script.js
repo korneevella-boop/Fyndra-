@@ -63,3 +63,17 @@ document.querySelectorAll(".menu a").forEach(link => {
   });
 
 });
+
+const lenis = new Lenis({
+  lerp: 0.05,
+  smoothWheel: true,
+  wheelMultiplier: 0.8,
+  touchMultiplier: 1.2
+});
+
+function raf(time) {
+  lenis.raf(time);
+  requestAnimationFrame(raf);
+}
+
+requestAnimationFrame(raf);
