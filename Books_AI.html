@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Recommendation Chat</title>
+    <link rel="stylesheet" href="books-style.css">
+</head>
+<body>
+
+<div class="chat-container">
+    <div class="chat-header">📚 My Personal Book Assistant</div>
+    
+    <div class="chat-messages" id="chatMessages">
+        <div class="message bot">
+            Hi there! 📚 I am your personal Book Concierge. My mission is to find your next unforgettable read. To do that, I'd love to ask you a few quick questions about your tastes.<br><br>
+            Let's start: What is your absolute favorite book genre, or a specific story trope you always love reading?
+        </div>
+    </div>
+    
+    <div class="chat-input-area">
+        <input type="text" id="userInput" placeholder="Type your answer here..." onkeypress="handleKeyPress(event)">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+</div>
+
+    <script src="books_api.js"></script>
+</body>
+</html>

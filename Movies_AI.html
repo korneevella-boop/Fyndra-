@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinema Recommendation Chat</title>
+    <link rel="stylesheet" href="cinema-style.css">
+</head>
+<body>
+
+<div class="chat-container">
+    <div class="chat-header">🍿 My Personal Cinema Guide</div>
+    
+    <div class="chat-messages" id="chatMessages">
+        <div class="message bot">
+            Welcome! 🍿 I am your Cinema Expert and Movie Guide. Looking for a mind-bending thriller, a hilarious comedy, or a timeless classic? Tell me what you like, and I'll build your perfect movie watchlist.<br><br>
+            Let's begin: What kind of movie genre or vibe are you looking for tonight?
+        </div>
+    </div>
+    
+    <div class="chat-input-area">
+        <input type="text" id="userInput" placeholder="Type your answer here..." onkeypress="handleKeyPress(event)">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+</div>
+
+    <script src="cinema_api.js"></script>
+</body>
+</html>

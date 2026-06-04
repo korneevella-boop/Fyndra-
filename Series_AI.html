@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TV Series Recommendation Chat</title>
+    <link rel="stylesheet" href="series-style.css">
+</head>
+<body>
+
+<div class="chat-container">
+    <div class="chat-header">📺 My Personal TV Series Assistant</div>
+    
+    <div class="chat-messages" id="chatMessages">
+        <div class="message bot">
+            Hey there! 📺 Welcome to your personal TV Series Guide. Looking for your next big binge-watch, a quick limited series, or a comforting sitcom to relax with? Tell me what you're into, and I will curate the perfect watchlist for you!<br><br>
+            To kick things off: What are 1 or 2 TV shows that you absolutely loved and couldn't stop watching in the past?
+        </div>
+    </div>
+    
+    <div class="chat-input-area">
+        <input type="text" id="userInput" placeholder="Type your answer here..." onkeypress="handleKeyPress(event)">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+</div>
+
+    <script src="series-script.js"></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comic Book Recommendation Chat</title>
+    <link rel="stylesheet" href="comics-style.css">
+</head>
+<body>
+
+<div class="chat-container">
+    <div class="chat-header">🦸‍♂️ My Personal Comic Book Assistant</div>
+    
+    <div class="chat-messages" id="chatMessages">
+        <div class="message bot">
+            Hi there! 🦸‍♂️ Welcome to your personal Comic Book Guide. Whether you are looking to dive into massive superhero universes, discover gripping indie series, or read a masterpiece of a standalone graphic novel, I'm here to find your next favorite story!<br><br>
+            Let's get started: Do you prefer classic superhero stories, or are you looking for something different like sci-fi, horror, or realistic drama?
+        </div>
+    </div>
+    
+    <div class="chat-input-area">
+        <input type="text" id="userInput" placeholder="Type your answer here..." onkeypress="handleKeyPress(event)">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+</div>
+
+    <script src="comics_api.js"></script>
+</body>
+</html>
